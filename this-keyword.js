@@ -12,7 +12,7 @@ func2();
 
 const obj={
     a:5,
-    x:function(){
+    x:function(){ 
         console.log("inside object's func",this)
     },
     y:()=>{

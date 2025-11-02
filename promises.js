@@ -1,13 +1,15 @@
 // let p=new Promise(resolve=>resolve("Hello"));
+// // .then=>to show resolved value
 // p.then(msg=>console.log(msg))
 
 // let p = new Promise((_, reject) => reject("Error!"));
+// // .catch=>to show rejected value
 // p.catch(err => console.log(err));
 
-// Promise.resolve(1)
-//   .then(n => n + 1)
-//   .then(n => n * 2)
-//   .then(console.log);
+// const p=Promise.resolve(1)
+//       .then(n => n + 1)
+//       .then(n => n * 2)
+//       .then(console.log);
 
 // Promise.resolve("A")
 //   .then(val => {
@@ -31,21 +33,16 @@
 //   .then(() => console.log("This won't run"))
 //   .catch(err => console.log("Caught:", err));
 
-//   Promise.resolve()
-//   .then(()=>{throw "Fail"})
-//   .then(()=>console.log("This won't run"))
-//   .catch(err=>console.log("Caught:", err));
-
-
 // Promise.all([
 //   Promise.resolve("One"),
 //   Promise.resolve("Two")
 // ]).then(values => console.log(values));
 
 // Promise.race([
-//   new Promise(res => setTimeout(() => res("Slow"), 1000)),
-//   Promise.resolve("Fast")
-// ]).then(console.log);
+//   new Promise(res => setTimeout(() => res("Slow"), 2000)),
+//   new Promise((_,reject) => setTimeout(() => reject("Slow"), 1000)),
+// //   Promise.resolve("Fast")
+// ]).then(console.log).catch(console.error);
 
 // console.log("1");
 // Promise.resolve().then(() => console.log("2"));
@@ -55,9 +52,9 @@
 
 // const fetchData=()=>{
 //     return new Promise((resolve, reject)=>{
-//         // setTimeout(()=>{
+//         setTimeout(()=>{
 //             reject("Data fetched error")
-//         // }, 1000)
+//         }, 0)
 //     })
 // }
 // fetchData().then(data=>console.log(data)).catch(err=>console.log(err))
@@ -67,7 +64,7 @@
 //         setTimeout(()=>{
 //             console.log("Fetched user");
 //             resolve({id:101, name: "John"})
-//         })
+//         }, 1000)
 //     })
 // }
 // const getOrder=(userId)=>{
@@ -81,7 +78,7 @@
 // const getOrderDetails=(orderId)=>{
 //     return new Promise((resolve)=>{
 //         setTimeout(()=>{
-//             console.log("order details for order", orderId);
+//             console.log("order details for", orderId);
 //             resolve({orderId, name:"iPhone", price: 200000})
 //         }, 1000)
 //     })
@@ -95,11 +92,14 @@
 //         }, 1000)
 //     })
 // }
+// console.time("Total Time Taken")
 // getUser()
 // .then(user=>getOrder(user.id))
 // .then(order=>getOrderDetails(order[0]))
 // .then(orderDetails=>sendEmail(orderDetails.name))
 // .then(console.log)
+// .finally(()=>console.timeEnd("Total Time Taken"))
+
 // Q: Difference between Promise.then and async/await?
 
 // Q: How to handle multiple Promises?
@@ -142,38 +142,38 @@
 // }
 // getUsers()
 
-const p1=new Promise((resolve, reject)=>{
-    setTimeout(()=>{
-        console.log("Promise1")
-    },1000)
-})
-p1.then(()=>console.log("Promise1 resolved"));
+// const p1=new Promise((resolve, reject)=>{
+//     setTimeout(()=>{
+//         console.log("Promise1")
+//     },1000)
+// })
+// p1.then(()=>console.log("Promise1 resolved"));
 
-const p2=new Promise((resolve, reject)=>{
-    setTimeout(()=>{
-        console.log("Promise2")
-        resolve() // without this .then won't work
-    },1000)
-})
-p2.then(()=>console.log("Promise2 resolved"));
+// const p2=new Promise((resolve, reject)=>{
+//     setTimeout(()=>{
+//         console.log("Promise2")
+//         resolve() // without this .then won't work
+//     },1000)
+// })
+// p2.then(()=>console.log("Promise2 resolved"));
 
-const p3=new Promise((resolve, reject)=>{
-    setTimeout(()=>{
-        console.log("Promise3")
-        resolve("Promise3 resolved")
-    },1000)
-})
-p3.then(console.log);
+// const p3=new Promise((resolve, reject)=>{
+//     setTimeout(()=>{
+//         console.log("Promise3")
+//         resolve("Promise3 resolved")
+//     },1000)
+// })
+// p3.then(console.log);
 
-const p4=new Promise((resolve, reject)=>{
-    const error=true;
-    setTimeout(()=>{
-        console.log("Promise4")
-        if(!error){
-            resolve("Promise4 resolved")
-        }else{
-            reject("Promise4 rejected")
-        }
-    },1000)
-})
-p4.then(console.log).catch(console.log)
+// const p4=new Promise((resolve, reject)=>{
+//     const error=true;
+//     setTimeout(()=>{
+//         console.log("Promise4")
+//         if(!error){
+//             resolve("Promise4 resolved")
+//         }else{
+//             reject("Promise4 rejected")
+//         }
+//     },1000)
+// })
+// p4.then(console.log).catch(console.log)
