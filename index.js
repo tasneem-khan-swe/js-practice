@@ -123,3 +123,40 @@
 //     e.stopImmediatePropagation() // capture value should not be true
 //     console.log("btn clicked")
 // },true)
+
+// 
+// o1={a:2, b:2, c:3, d:10, e:12}
+// o2={a:1, e:12, d:10, f:6}
+// // o={b:2, c:3}
+// o={}
+// for(const key1 in o1){
+//     for(const key2 in o2){
+//         // console.log(key1, key2);
+//         if(key1 === key2 && o1[key1] === o2[key2]){
+//             o[key1]=o1[key1]
+//         }
+// }
+// }
+// console.log(o)
+
+a=[1,2,-2,7,4,-5,11]
+// let l1=-Infinity; let l2=-Infinity;
+// for(const n of a){
+//     if(n>l1){
+//         l2=l1
+//         l1=n
+//     }else if(n<l1 && n>l2){
+//         l2=n
+//     }
+// }
+// let l1=Infinity; let l2=Infinity;
+// for(const n of a){
+//     if(n<l1){
+//         l2=l1
+//         l1=n
+//     }else if(n>l1 && n<l2){
+//         l2=n
+//     }
+// }
+// console.log(l2);
+

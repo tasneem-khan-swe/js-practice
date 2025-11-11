@@ -28,7 +28,6 @@ const arrObj=[
   const obj={}
   arrObj.forEach(item=>{
       const key=item.key;
-      console.log(key,"hi", obj[key], "bye")
       if(obj[key]){
           obj[key].push(item)
       }
@@ -36,9 +35,11 @@ const arrObj=[
           obj[key]=[item]
       }
   })
-  const grouped = arrObj.reduce((acc, item) => {
-  (acc[item.key] = acc[item.key] || []).push(item);
-  return acc;
-}, {});
+//   const grouped = arrObj.reduce((acc, item) => {
+//   (acc[item.key] = acc[item.key] || []).push(item);
+//   return acc;
+// }, {});
 
-    console.log(obj, grouped)
+    console.log(obj)
+// const unique = arrObj.map(item => [item.key, item]);
+// console.log(unique)
