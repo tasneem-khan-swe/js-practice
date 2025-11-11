@@ -80,6 +80,10 @@ const BTN_STYLES = {
     }
     function startTimer() {
         console.log("start");
+        
+        if (hours.value == 0 && minutes.value == 0 && seconds.value == 0) {
+            return
+        }
         isRunning = true;
         setBtnState("pause");
         intervalId = setInterval(() => {
