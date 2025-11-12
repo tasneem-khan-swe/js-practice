@@ -33,6 +33,7 @@ function checkDraw(){
 }
 function resetGame(){
     console.log("reset")
+    arr=arr.map(()=>null)
     boxes.forEach(box=>(box.innerText=""));
     result.style.visibility="hidden";
     currentPlayer="X";
@@ -52,5 +53,7 @@ function handleClick(el) {
         gameOver=true;
         return 
     }
+    checkDraw();
     currentPlayer = currentPlayer == "X" ? "O" : "X";
 }
+console.log("arr", arr)
