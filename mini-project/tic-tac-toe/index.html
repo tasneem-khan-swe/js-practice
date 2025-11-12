@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="center_child">
+    <div class="container center_child">
+            <div class="container_title">Tic Tac Toe</div>
+
+        <div class="container_grid">
+            <div class="container_grid_row">
+                <div id="0" onclick="handleClick(this)" class="container_grid_column center_child"></div>
+                <div id="1" onclick="handleClick(this)" class="container_grid_column center_child"></div>
+                <div id="2" onclick="handleClick(this)" class="container_grid_column center_child"></div>
+            </div>
+            <div class="container_grid_row">
+                <div id="3" onclick="handleClick(this)" class="container_grid_column center_child"></div>
+                <div id="4" onclick="handleClick(this)" class="container_grid_column center_child"></div>
+                <div id="5" onclick="handleClick(this)" class="container_grid_column center_child"></div>
+            </div>
+            <div class="container_grid_row">
+                <div id="6" onclick="handleClick(this)" class="container_grid_column center_child"></div>
+                <div id="7" onclick="handleClick(this)" class="container_grid_column center_child"></div>
+                <div id="8" onclick="handleClick(this)" class="container_grid_column center_child"></div>
+            </div>
+        </div>
+        <div id="result">Result</div>
+        <div><button onclick="resetGame()" class="resetBtn">Reset</button></div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
